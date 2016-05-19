@@ -25,7 +25,6 @@ $(document).ready(function($)
 			form.validate().focusInvalid();
 		}
 	});
-	
 });
 
 function retornoBuscarPaciente(resp, error)
@@ -36,7 +35,7 @@ function retornoBuscarPaciente(resp, error)
 	{
 		consultar('#formBuscarPaciente', '', 'json', function(){}, retornoDadosPaciente);
 		$('#divBuscarPaciente').attr('class', 'hidden');
-		$('#divListarPaciente').removeClass('hidden');
+		$('#divDadosPaciente').removeClass('hidden');
 		form.reset();
 	}
 
@@ -51,4 +50,5 @@ function retornoDadosPaciente(resp, error)
 	{
         $("#"+index).val(resp.msg.texto[index]);
     }
+    $('#convenio_id').html(resp.msg.texto['convenio_nome']);
 }

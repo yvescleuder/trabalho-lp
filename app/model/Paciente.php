@@ -5,6 +5,7 @@ require_once('Model.php');
 class Paciente extends Model
 {
 	private $tabela = 'paciente';
+	private $tabelaConvenio = 'convenio';
 
 	public function __construct()
 	{
@@ -39,11 +40,17 @@ class Paciente extends Model
 
 	public function buscarPorCodigo($codigo)
 	{
-		$buscar = $this->database->select($this->tabela, "*", ['codigo' => $codigo]);
+		$buscar = $this->database->query("SELECT
+											t1.*,
+											t2.id as convenio_id,
+											t2.nome as convenio_nome
+										FROM $this->tabela as t1
+										INNER JOIN $this->tabelaConvenio as t2 ON (t1.convenio_id = t2.id)
+										WHERE codigo = $codigo")->fetch();
 		
 		if($buscar == true)
 		{
-			return $buscar[0];
+			return $buscar;
 		}
     
         $this->mostrarError();

@@ -36,8 +36,8 @@ class PacienteController extends Controller
 		// Faz a validação de todos os campos
 		$valido = GUMP::is_valid($dados, array(
 			'codigo' => 'required|integer|min_len,1|max_len,10',
-			'nome' => 'required|alpha|min_len,4|max_len,100',
-			'sobrenome' => 'required|alpha|min_len,4|max_len,100',
+			'nome' => 'required|alpha_space|min_len,4|max_len,100',
+			'sobrenome' => 'required|alpha_space|min_len,4|max_len,100',
 			'telefone1' => 'required|min_len,14|max_len,16',
 			'celular1' => 'required|min_len,14|max_len,16',
 			'convenio_id' => 'required|min_len,1',

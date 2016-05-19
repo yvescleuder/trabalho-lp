@@ -52,7 +52,7 @@ $(document).ready(function($)
 	{
 		if(form.valid())
 		{
-			salvar(form, 'json', antesEnviar('#resposta','.loading'), retornoPacienteCadastrar);
+			salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoPacienteCadastrar);
 		}
 		else
 		{

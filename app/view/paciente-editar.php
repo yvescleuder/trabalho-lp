@@ -2,7 +2,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
 				<li class="active">Editar Paciente</li>
 			</ol>
 		</div><!--/.row-->			
@@ -34,13 +34,13 @@
 						<!-- Fim Form Busca Codigo Paciente-->
 
 						<!-- Inicio Form de edição de Paciente-->
-						<div class="panel-body hidden" id="divListarPaciente">
+						<div class="panel-body hidden" id="divDadosPaciente">
 							<div id="resposta"></div>
 							<form id="formDadosPaciente" method="POST">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Código</label>
-										<input type="number" id="codigo" class="form-control" placeholder="Código" name="paciente[codigo]" maxlength="10">
+										<input type="number" id="codigo" class="form-control" placeholder="Código" name="paciente[codigo]" maxlength="10" disabled>
 									</div>
 																	
 									<div class="form-group">
@@ -63,7 +63,7 @@
 									<div class="form-group">
 										<label>Convênio</label>
 										<select class="form-control" id="listarConvenio" name="paciente[convenio_id]">
-											<option id="convenio_id" value="">-- Selecione</option>
+											<option id="convenio_id" value=""></option>
 										</select>
 									</div>
 																	
