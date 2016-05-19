@@ -26,10 +26,21 @@ else
 
 		case "paciente/editar":
 		{
-			#require_once('paciente-editar.php');
+			require_once('paciente-editar.php');
 			break;
 		}
 		
+		case "agendamento/cadastrar":
+		{
+			require_once('agendamento-cadastrar.php');
+			break;
+		}
+
+		case "agendamento/visualizar":
+		{
+			require_once('agendamento-visualizacao.php');
+			break;
+		}
 		default:
 		{
 			echo 'pagina não existe';
