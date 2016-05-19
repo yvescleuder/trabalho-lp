@@ -23,6 +23,12 @@ else
 			require_once('paciente-cadastrar.php');
 			break;
 		}
+
+		case "paciente/editar":
+		{
+			#require_once('paciente-editar.php');
+			break;
+		}
 		
 		default:
 		{
