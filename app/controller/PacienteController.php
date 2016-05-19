@@ -77,4 +77,22 @@ class PacienteController extends Controller
 
 		echo json_encode($this->resposta);
 	}
+
+	public function buscarPorCodigo()
+	{
+		$codigo = $this->input->get("codigo");
+
+		$buscar = $this->paciente->buscarPorCodigo($codigo);
+
+		if($buscar == true)
+		{
+			$this->resposta = ['msg' => ['tipo' => 's', 'texto' => $buscar]];
+		}
+		else
+		{
+			$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Esse código ({$codigo}) não existe"]];
+		}
+
+		return $this->resposta;
+	}
 }

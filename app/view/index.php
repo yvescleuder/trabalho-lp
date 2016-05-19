@@ -38,7 +38,7 @@ else
 
 		case "agendamento/visualizar":
 		{
-			require_once('agendamento-visualizacao.php');
+			require_once('agendamento-visualizar.php');
 			break;
 		}
 		default:

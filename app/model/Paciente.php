@@ -36,4 +36,17 @@ class Paciente extends Model
         $this->mostrarError();
         return false;
 	}
+
+	public function buscarPorCodigo($codigo)
+	{
+		$buscar = $this->database->select($this->tabela, "*", ['codigo' => $codigo]);
+		
+		if($buscar == true)
+		{
+			return $buscar[0];
+		}
+    
+        $this->mostrarError();
+        return false;		
+	}
 }
