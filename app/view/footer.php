@@ -1,4 +1,10 @@
-	<?php require_once('scripts-base.php'); ?>
+	
+	<!-- Início Base do AJAX -->
+	<script type="text/javascript" src="../../assets/js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/notificacao.js"></script>
+	<script type="text/javascript" src="../../assets/js/ajax.js"></script>
+	<!-- Fim Base do AJAX -->
+	
 	<!-- jQuery Validation -->
 	<script type="text/javascript" src="../../assets/js/validation/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="../../assets/js/validation/localization/messages_pt_BR.min.js"></script>
