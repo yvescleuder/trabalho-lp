@@ -1,6 +1,7 @@
 	<?php require_once('scripts-base.php'); ?>
 	<!-- jQuery Validation -->
 	<script type="text/javascript" src="../../assets/js/validation/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/validation/localization/messages_pt_BR.min.js"></script>
 
 	<!-- Javacripts do template -->
 	<script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>

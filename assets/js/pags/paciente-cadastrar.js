@@ -1,6 +1,8 @@
 /* Custom JavaScript */
 $(document).ready(function($)
 {
+	consultar('#formListarConvenio', '', 'json', function(){}, retornoListarConvenio);
+
 	var form = $('#formCadastrarPaciente');
 
 	form.validate({
@@ -50,7 +52,7 @@ $(document).ready(function($)
 	{
 		if(form.valid())
 		{
-			salvar(form, 'json', antesEnviar('#resposta','.loading'), retornoTeste);
+			salvar(form, 'json', antesEnviar('#resposta','.loading'), retornoPacienteCadastrar);
 		}
 		else
 		{
@@ -60,13 +62,27 @@ $(document).ready(function($)
 	
 });
 
-function retornoTeste(resp, error)
+function retornoPacienteCadastrar(resp, error)
 {
 	var form = $('#formCadastrarPaciente');
 	notificacao("#resposta", resp.msg);
-	form.reset();
+	if(resp.msg.tipo == 's')
+	{
+		form.reset();
+	}
 
 	$('html, body').animate({scrollTop: $('.navbar-brand').offset().top }, 1000);
 
 	loading('.loading', 0);
+}
+
+function retornoListarConvenio(resp, error)
+{
+	var datasHTML = '';
+	resp.forEach(function(item, i)
+	{
+		datasHTML += '<option value="'+item.id+'">'+item.nome+'</option>';
+	});
+
+  	$('#listarConvenio').append(datasHTML);
 }

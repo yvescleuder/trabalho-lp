@@ -33,19 +33,15 @@
 																
 								<div class="form-group">
 									<label>Celular 1</label>
-									<input type="text" class="form-control" name="paciente[telefone2]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" class="form-control" name="paciente[celular1]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 							</div>
 
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Convênio</label>
-									<select class="form-control" name="paciente[convenio_id]">
+									<select class="form-control" id="listarConvenio" name="paciente[convenio_id]">
 										<option value="">-- Selecione</option>
-										<option value="1">Option 1</option>
-										<option value="2">Option 2</option>
-										<option value="3">Option 3</option>
-										<option value="4">Option 4</option>
 									</select>
 								</div>
 																
@@ -72,6 +68,9 @@
 									<img src="../../assets/img/load.gif" alt="Carregando...">
 								</span>
 							</div>
+						</form>
+						<form id="formListarConvenio" action="../action/listar.php" method="POST">
+							<input type="hidden" name="acao" value="listarConvenio">
 						</form>
 					</div>
 				</div>

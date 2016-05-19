@@ -1,12 +1,15 @@
 <?php
 
+require_once('../controller/PacienteController.php');
+
 $acao = isset($_POST['acao']) ? $_POST['acao'] : '';
 
 switch($acao)
 {
 	case "cadastrarPaciente":
 	{
-		echo json_encode(['msg' => ['texto' => 'Cadastrar Paciente', 'tipo' => 's']]);
+		$controller = new PacienteController();
+		return $controller->cadastrar();
 		break;
 	}
     default: 
