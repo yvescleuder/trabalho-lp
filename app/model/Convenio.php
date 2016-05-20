@@ -17,4 +17,12 @@ class Convenio extends Model
 
 		return $listar;
 	}
+	
+	public function listarEditar($convenio_id)
+	{
+		$listar = $this->database->query("SELECT * FROM $this->tabela WHERE id != $convenio_id")->fetchAll();
+
+		return $listar;
+	}
+
 }

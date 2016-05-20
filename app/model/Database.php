@@ -7,7 +7,7 @@ class Database
     private $host = "localhost";
     private $user = "root";
     private $password = "";
-    private $dbname = "trabalho-lp";
+    private $dbname = "trabalho1-lp";
     private $port = "3306";
     private $charset = "utf8";
     private $prefix = "";
@@ -24,7 +24,12 @@ class Database
             'password' => $this->password,
             'port' => $this->port,
 		    'charset' => $this->charset,
-		    'prefix' => $this->prefix
+		    'prefix' => $this->prefix,
+            'option' => [
+                PDO::ATTR_CASE => PDO::CASE_NATURAL,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+            ]
 		]);
 
         return $this->database;

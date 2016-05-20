@@ -19,6 +19,12 @@ switch($acao)
 		echo json_encode($controller->buscarPorCodigo());
 		break;
 	}
+	case "listarConvenioEditar":
+	{
+		$controller = new ConvenioController();
+		echo json_encode($controller->listarEditar());
+		break;
+	}
     default: 
     {
         echo "Operação inválida";
