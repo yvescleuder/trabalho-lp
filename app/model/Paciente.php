@@ -56,4 +56,20 @@ class Paciente extends Model
         $this->mostrarError();
         return false;		
 	}
+
+	public function alterar($dados)
+	{
+		$codigo = $dados['codigo'];
+        unset($dados['codigo']);
+
+        $alterar = $this->database->update($this->tabela, $dados, ["codigo" => $codigo]);
+
+        if($alterar == true)
+        {
+            return true;
+        }
+
+        $this->mostrarError();
+        return false;
+	}
 }

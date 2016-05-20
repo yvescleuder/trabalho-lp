@@ -114,4 +114,64 @@ class PacienteController extends Controller
 
 		return $this->resposta;
 	}
+
+	public function alterar()
+	{
+		$dados = $this->input->get('paciente');
+		$codigo_paciente = $this->input->get('codigo_paciente');
+
+		// Verifica se esses 2 campos (não são obrigátórios), se veio vazio eu removo eles para não irem com valores vazios para o banco.
+		if(empty($dados['telefone2']))
+		{
+			unset($dados['telefone2']);
+		}
+		if(empty($dados['celular2']))
+		{
+			unset($dados['celular2']);
+		}
+		// Se chegar o código dele, irá retirar
+		if(isset($dados['codigo']))
+		{
+			unset($dados['codigo']);
+		}
+
+		$resultadoInvalido = "";
+
+		// Faz a validação de todos os campos
+		$valido = GUMP::is_valid($dados, array(
+			'nome' => 'required|alpha_space|min_len,4|max_len,100',
+			'sobrenome' => 'required|alpha_space|min_len,4|max_len,100',
+			'telefone1' => 'required|min_len,14|max_len,16',
+			'celular1' => 'required|min_len,14|max_len,16',
+			'convenio_id' => 'required|min_len,1',
+		));
+
+		if($valido !== true)
+		{
+			foreach($valido as $value)
+		  	{
+		   		$resultadoInvalido .= $value.'<br>';
+		  	}
+		 	
+		 	$this->resposta = ["msg" => ["tipo" => "e", "texto" => $resultadoInvalido]];
+		}
+		else
+		{
+			$dados['codigo'] = $codigo_paciente;
+
+			// Insere o paciente no banco de dados
+			$resultado = $this->paciente->alterar($dados);
+
+			if($resultado == true)
+			{
+				$this->resposta = ['msg' => ['tipo' => 's', 'texto' => "Usuário alterado com sucesso"]];
+			}
+			else
+			{
+				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Alteração de usuário falhou"]];
+			}
+		}
+
+		echo json_encode($this->resposta);
+	}
 }

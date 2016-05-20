@@ -38,8 +38,10 @@
 						</form>
 						<!-- Inicio Form de edição de Paciente-->
 						<div class="panel-body hidden" id="divDadosPaciente">
-							<div id="resposta"></div>
-							<form id="formDadosPaciente" method="POST">
+							<div id="respostaAlterar"></div>
+							<form id="formDadosPaciente" action="../action/alterar.php" method="POST">
+								<input type="hidden" name="acao" value="editarPaciente">
+								<input type="hidden" id="codigo_paciente" name="codigo_paciente" value="">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Código</label>
@@ -87,7 +89,7 @@
 								</div>
 
 								<div class="col-md-12">
-									<a type="submit" class="btn btn-primary btn-disabled">Editar</a>
+									<button type="submit" id="botaoSalvarAlteracoes" class="btn btn-success btn-disabled">Salvar alterações</button>
 									<span class="loading hide">
 										<img src="../../assets/img/load.gif" alt="Carregando...">
 									</span>
