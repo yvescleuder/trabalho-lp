@@ -58,8 +58,7 @@ $(document).ready(function($)
 		{
 			form.validate().focusInvalid();
 		}
-	});
-	
+	});	
 });
 
 function retornoPacienteCadastrar(resp, error)

@@ -27,6 +27,8 @@ $(document).ready(function($)
 	});
 });
 
+
+
 function retornoBuscarPaciente(resp, error)
 {
 	var form = $('#formBuscarPaciente');

@@ -62,7 +62,7 @@
 							</div>
 
 							<div class="col-md-12">
-								<a type="submit" class="btn btn-primary btn-disabled">Cadastrar</a>
+								<button type="submit" class="btn btn-primary btn-disabled">Cadastrar</button>
 								<button type="reset" class="btn btn-default btn-disabled">Limpar campos</button>
 								<span class="loading hide">
 									<img src="../../assets/img/load.gif" alt="Carregando...">

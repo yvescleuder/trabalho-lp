@@ -8,49 +8,97 @@
 		</div><!--/.row-->
 		
 		<div class="row" align="center">
-			<div class="col-lg-12">
+			<div class="col-md-12">
 				<h1 class="page-header">Início</h1>
 			</div>
 		</div><!--/.row-->
-		
+
+		<div class="row">
 			<div class="col-md-12">
-			
 				<div class="panel panel-teal">
 					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>Próximas Consultas</div>
 					<div class="panel-body">
-					<div class="col-md-6">
-						<ul class="todo-list">
-						<li class="todo-list-item">
-								<div class="list">
-									<label for="list">Hugo Fernandes</label>
-									<label for="list">               </label>
-									<label for="list">21/05/2016 14:30</label>
-								</div>
-								</li>
-							</ul>
-						</div>
-							
-						<div class="col-md-6">
-							
-							<ul class="todo-list">
-								<li class="todo-list-item">
-										<div class="list">
-											<label for="list">Retorno</label>
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="todo-list">
+									<li class="todo-list-item">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="col-md-3">
+													<label>Paciente</label>
+												</div>
+												<div class="col-md-3">
+													<label for="list">Médico</label>
+												</div>
+												<div class="col-md-3">
+													<label for="list">Data/Hora</label>
+												</div>
+												<div class="col-md-3">
+													<label for="list">Agendamento</label>
+												</div>
+											</div>
 										</div>
-								</li>
-							</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="todo-list">
+									<li class="todo-list-item">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="col-md-3">
+													<label>Hugo Fernandes</label>
+												</div>
+												<div class="col-md-3">
+													<label for="list">Dr. João</label>
+												</div>
+												<div class="col-md-3">
+													<label for="list">20/05/2016 - 12:00:00</label>
+												</div>
+												<div class="col-md-3">
+													<label for="list">Consulta</label>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="todo-list">
+									<li class="todo-list-item">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="col-md-3">
+													<label>Hugo Fernandes</label>
+												</div>
+												<div class="col-md-3">
+													<label for="list">Dr. João</label>
+												</div>
+												<div class="col-md-3">
+													<label for="list">20/05/2016 - 12:00:00</label>
+												</div>
+												<div class="col-md-3">
+													<label for="list">Retorno</label>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>	
 				</div>	
 			</div>
-		
-		
-					
-			</div><!--/.col-->
-			
-			
-								
-			</div><!--/.col-->
-		</div><!--/.row-->
+		</div><!-- /.row -->
 	</div>	<!--/.main-->
 <?php require_once('footer.php'); ?>

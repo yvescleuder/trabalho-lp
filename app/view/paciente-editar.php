@@ -24,7 +24,7 @@
 								</div>
 
 								<div class="col-md-12">
-									<a type="submit" id="butaoBuscarPaciente" class="btn btn-primary btn-disabled">Buscar</a>
+									<button type="submit" id="butaoBuscarPaciente" class="btn btn-primary btn-disabled">Buscar</button>
 									<span class="loading hide">
 										<img src="../../assets/img/load.gif" alt="Carregando...">
 									</span>
