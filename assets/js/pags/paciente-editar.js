@@ -25,9 +25,26 @@ $(document).ready(function($)
 			form.validate().focusInvalid();
 		}
 	});
+
+	$('#botaoSalvarAlteracoes').click(function()
+	{
+		if(form.valid())
+		{
+			salvar($('#formDadosPaciente'), 'json', antesEnviar('#mostrar-error','.loading'), retornoSalvarAlteracoes);
+		}
+		else
+		{
+			form.validate().focusInvalid();
+		}
+	});
 });
 
-
+function retornoSalvarAlteracoes(resp, error)
+{
+	notificacao("#respostaAlterar", resp.msg);
+	$('html, body').animate({scrollTop: $('.navbar-brand').offset().top }, 1000);
+	loading('.loading', 0);
+}
 
 function retornoBuscarPaciente(resp, error)
 {
@@ -54,10 +71,11 @@ function retornoDadosPaciente(resp, error)
     }
     $('#convenio_id').html(resp.msg.texto['convenio_nome']);
     $('#paciente_id_editar').val(resp.msg.texto['convenio_id']);
-    consultar('#formBuscarConvenio', '', 'json', function(){}, retornoConvenio1);
+    $('#codigo_paciente').val(resp.msg.texto['codigo']);
+    consultar('#formBuscarConvenio', '', 'json', function(){}, retornoConvenio);
 }
 
-function retornoConvenio1(resp, error)
+function retornoConvenio(resp, error)
 {
 	var datasHTML = '';
 	resp.forEach(function(item, i)
