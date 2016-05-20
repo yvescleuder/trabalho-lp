@@ -30,7 +30,12 @@
 									<input type="date" class="form-control" name="data" placeholder="Data da Consulta">
 								</div>
 																
-								
+								<div class="form-group">
+									<label>Médico</label>
+									<select class="form-control" id="listarMedico" name="medico[crm]">
+										<option value="">-- Selecione</option>
+									</select>
+								</div>
 								
 							</div>
 

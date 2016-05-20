@@ -42,6 +42,7 @@
 		</form>
 		<ul class="nav menu">
 			<li <?php echo (!isset($_GET['pagina']) || empty($_GET['pagina']) || $_GET['pagina'] == 'inicio') ? 'class="active"' : '' ?>><a href="index"><i class="fa fa-home" aria-hidden="true"></i> Início</a></li>
+			<li <?php echo (isset($_GET['pagina']) && ($_GET['pagina'] == 'medico/cadastrar')) ? 'class="active"' : '' ?>><a href="index?pagina=medico/cadastrar"><i class="fa fa-plus" aria-hidden="true"></i> Cadastrar Médico</a></li>
 			<li <?php echo (isset($_GET['pagina']) && ($_GET['pagina'] == 'paciente/cadastrar')) ? 'class="active"' : '' ?>><a href="index?pagina=paciente/cadastrar"><i class="fa fa-user-plus" aria-hidden="true"></i> Cadastrar Paciente</a></li>
 			<li <?php echo (isset($_GET['pagina']) && ($_GET['pagina'] == 'paciente/editar')) ? 'class="active"' : '' ?>><a href="index?pagina=paciente/editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar Paciente</a></li>
 			<li <?php echo (isset($_GET['pagina']) && ($_GET['pagina'] == 'agendamento/cadastrar')) ? 'class="active"' : '' ?>><a href="index?pagina=agendamento/cadastrar"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Cadastrar Agendamento</a></li>
