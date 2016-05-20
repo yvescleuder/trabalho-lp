@@ -7,7 +7,7 @@ class Database
     private $host = "localhost";
     private $user = "root";
     private $password = "";
-    private $dbname = "trabalho1-lp";
+    private $dbname = "trabalho-lp";
     private $port = "3306";
     private $charset = "utf8";
     private $prefix = "";
