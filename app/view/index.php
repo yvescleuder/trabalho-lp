@@ -43,9 +43,11 @@ else
 		}
 
 		case "medico/cadastrar":
+		{
 			require_once('medico-cadastrar.php');
 			break;
-
+		}
+		
 		default:
 		{
 			echo 'pagina não existe';

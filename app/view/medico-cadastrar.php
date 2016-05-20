@@ -3,7 +3,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
-				<li class="active">Cadastrar Paciente</li>
+				<li class="active">Cadastrar Médico</li>
 			</ol>
 		</div><!--/.row-->			
 		
@@ -13,12 +13,12 @@
 					<div class="panel-heading">Cadastrar Médico</div>
 					<div class="panel-body">
 						<div id="resposta"></div>
-						<form id="formCadastrarPaciente" action="../action/inserir.php" method="POST">
-							<input type="hidden" name="acao" value="cadastrarPaciente">
+						<form id="formCadastrarMedico" action="../action/inserir.php" method="POST">
+							<input type="hidden" name="acao" value="cadastrarMedico">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>CRM</label>
-									<input type="number" class="form-control" placeholder="CRM" name="paciente[codigo]" maxlength="10">
+									<input type="number" class="form-control" placeholder="CRM" name="medico[crm]" maxlength="10">
 								</div>
 																
 								<div class="form-group">
@@ -27,8 +27,8 @@
 								</div>
 																
 								<div class="form-group">
-									<label>Especialidade</label>
-									<input type="text" class="form-control" name="especialidade" placeholder="(99) # 9999-9999" maxlength="16">
+									<label>Telefone 1</label>
+									<input type="text" class="form-control" name="medico[telefone1]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 																
 								<div class="form-group">
@@ -37,25 +37,27 @@
 								</div>
 							</div>
 
-							<div class="col-md-6">
+							<div class="col-md-6">							
 								<div class="form-group">
-									<label>CPF</label>
-									<input type="text" class="form-control" name="medico[cpf]" placeholder="CPF" maxlength="100">
+									<label>Especialidade</label>
+									<select class="form-control" id="listarEspecialidade" name="medico[especialidade_id]">
+										<option value="">-- Selecione</option>
+									</select>
 								</div>
 																
 								<div class="form-group">
 									<label>Sobrenome</label>
-									<input type="text" class="form-control" name="paciente[sobrenome]" placeholder="Sobrenome" maxlength="100">
+									<input type="text" class="form-control" name="medico[sobrenome]" placeholder="Sobrenome" maxlength="100">
 								</div>
 																
 								<div class="form-group">
 									<label>Telefone 2</label>
-									<input type="text" class="form-control" name="paciente[telefone2]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" class="form-control" name="medico[telefone2]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 																
 								<div class="form-group">
 									<label>Celular 2</label>
-									<input type="text" class="form-control" name="paciente[celular2]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" class="form-control" name="medico[celular2]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 							</div>
 
@@ -66,9 +68,9 @@
 									<img src="../../assets/img/load.gif" alt="Carregando...">
 								</span>
 							</div>
-						</form>
-						<form id="formListarConvenio" action="../action/listar.php" method="POST">
-							<input type="hidden" name="acao" value="listarConvenio">
+						</form>						
+						<form id="formListarEspecialidade" action="../action/listar.php" method="POST">
+							<input type="hidden" name="acao" value="listarEspecialidade">
 						</form>
 					</div>
 				</div>
@@ -77,4 +79,4 @@
 		
 	</div><!--/.main-->
 <?php require_once('footer.php'); ?>
-	<script type="text/javascript" src="../../assets/js/pags/paciente-cadastrar.js"></script>
+	<script type="text/javascript" src="../../assets/js/pags/medico-cadastrar.js"></script>
