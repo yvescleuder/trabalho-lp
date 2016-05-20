@@ -32,7 +32,10 @@
 							</form>
 						</div>
 						<!-- Fim Form Busca Codigo Paciente-->
-
+						<form id="formBuscarConvenio" action="../action/listar.php" method="POST">
+							<input type="hidden" name="acao" value="listarConvenioEditar">
+							<input type="hidden" id="paciente_id_editar" name="convenio_id" value="">
+						</form>
 						<!-- Inicio Form de edição de Paciente-->
 						<div class="panel-body hidden" id="divDadosPaciente">
 							<div id="resposta"></div>

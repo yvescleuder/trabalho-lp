@@ -81,16 +81,35 @@ class PacienteController extends Controller
 	public function buscarPorCodigo()
 	{
 		$codigo = $this->input->get("codigo");
+		$dados = array('codigo' => $codigo);
+		$resultadoInvalido = "";
 
-		$buscar = $this->paciente->buscarPorCodigo($codigo);
+		// Faz a validação de todos os campos
+		$valido = GUMP::is_valid($dados, array(
+			'codigo' => 'required|integer|min_len,1|max_len,10'
+		));
 
-		if($buscar == true)
+		if($valido !== true)
 		{
-			$this->resposta = ['msg' => ['tipo' => 's', 'texto' => $buscar]];
+			foreach($valido as $value)
+		  	{
+		   		$resultadoInvalido .= $value.'<br>';
+		  	}
+		 	
+		 	$this->resposta = ["msg" => ["tipo" => "e", "texto" => $resultadoInvalido]];
 		}
 		else
 		{
-			$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Esse código ({$codigo}) não existe"]];
+			$buscar = $this->paciente->buscarPorCodigo($codigo);
+
+			if($buscar == true)
+			{
+				$this->resposta = ['msg' => ['tipo' => 's', 'texto' => $buscar]];
+			}
+			else
+			{
+				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Esse código ({$codigo}) não existe"]];
+			}
 		}
 
 		return $this->resposta;

@@ -19,4 +19,10 @@ class ConvenioController extends Controller
 	{
 		return $this->convenio->listar();
 	}
+
+	public function listarEditar()
+	{
+		$convenio_id = $this->input->get("convenio_id");
+		return $this->convenio->listarEditar($convenio_id);
+	}
 }

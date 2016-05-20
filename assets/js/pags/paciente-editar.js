@@ -51,4 +51,17 @@ function retornoDadosPaciente(resp, error)
         $("#"+index).val(resp.msg.texto[index]);
     }
     $('#convenio_id').html(resp.msg.texto['convenio_nome']);
+    $('#paciente_id_editar').val(resp.msg.texto['convenio_id']);
+    consultar('#formBuscarConvenio', '', 'json', function(){}, retornoConvenio1);
+}
+
+function retornoConvenio1(resp, error)
+{
+	var datasHTML = '';
+	resp.forEach(function(item, i)
+	{
+		datasHTML += '<option value="'+item.id+'">'+item.nome+'</option>';
+	});
+
+  	$('#listarConvenio').append(datasHTML);
 }
