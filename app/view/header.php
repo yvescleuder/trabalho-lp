@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SisMedic</title>
+<title>SysMedic</title>
 
 <link type="text/css" href="../../assets/css/bootstrap.min.css" rel="stylesheet">
 <link type="text/css" href="../../assets/css/datepicker3.css" rel="stylesheet">
@@ -31,7 +31,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>Sis</span>Medic</a>
+				<a class="navbar-brand" href="#"><span>Sys</span>Medic</a>
 			</div>
 							
 		</div><!-- /.container-fluid -->
