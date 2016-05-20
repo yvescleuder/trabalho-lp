@@ -2,7 +2,8 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+			
+				<li><a href="#"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i></a></li>
 				<li class="active">Cadastrar Agendamento</li>
 			</ol>
 		</div><!--/.row-->			
