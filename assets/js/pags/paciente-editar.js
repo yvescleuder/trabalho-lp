@@ -61,26 +61,12 @@ $(document).ready(function($)
 
 	$('#botaoBuscarPaciente').click(function()
 	{
-		if(formBuscar.valid())
-		{
-			consultar('#formBuscarPaciente', '', 'json', antesEnviar('#resposta', '.loading'), retornoBuscarPaciente);
-		}
-		else
-		{
-			formBuscar.validate().focusInvalid();
-		}
+		enterBuscar();
 	});
 
 	$('#botaoSalvarAlteracoes').click(function()
 	{
-		if(formDados.valid())
-		{
-			salvar($('#formDadosPaciente'), 'json', antesEnviar('#resposta','.loading'), retornoSalvarAlteracoes);
-		}
-		else
-		{
-			formDados.validate().focusInvalid();
-		}
+		enterAlterar();
 	});
 });
 

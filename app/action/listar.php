@@ -4,6 +4,7 @@ require_once('../controller/ConvenioController.php');
 require_once('../controller/PacienteController.php');
 require_once('../controller/EspecialidadeController.php');
 require_once('../controller/MedicoController.php');
+require_once('../controller/AgendamentoController.php');
 
 $acao = isset($_POST['acao']) ? $_POST['acao'] : '';
 
@@ -41,6 +42,20 @@ switch($acao)
 	{
 		$controller = new MedicoController();
 		echo json_encode($controller->listar());
+		break;
+	}
+
+	case "buscarAgendamento":
+	{
+		$controller = new AgendamentoController();
+		echo json_encode($controller->verificarExiste());
+		break;
+	}
+
+	case "buscarDadosAgendamento":
+	{
+		$controller = new AgendamentoController();
+		echo json_encode($controller->buscarPorCodigo());
 		break;
 	}
 

@@ -34,14 +34,7 @@ $(document).ready(function($)
 
 	$('.btn-primary').click(function()
 	{
-		if(form.valid())
-		{
-			salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoAgendamentoCadastrar);
-		}
-		else
-		{
-			form.validate().focusInvalid();
-		}
+		enter();
 	});
 });
 

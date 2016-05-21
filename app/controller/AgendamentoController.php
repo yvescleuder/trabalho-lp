@@ -44,27 +44,56 @@ class AgendamentoController extends Controller
 		}
 		else
 		{
-			if($this->paciente->verificarExiste($dados['paciente_codigo']))
+			if($this->agendamento->verificarDataHora($dados['data'], $dados['hora']))
 			{
-				// Insere o paciente no banco de dados
-				$resultado = $this->agendamento->inserir($dados);
-
-				if($resultado == true)
-				{
-					$this->resposta = ['msg' => ['tipo' => 's', 'texto' => "Agendamento criado com sucesso"]];
-				}
-				else
-				{
-					$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Criação de agendamento falhou"]];
-				}
+				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Já existe um agendamento com os respectivos horários (".date('d/m/Y', strtotime($dados['data']))." - ".$dados['hora'].")"]];
 			}
 			else
 			{
-				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "O Paciente de Código (".$dados['paciente_codigo'].") não existe"]];
+				if($this->paciente->verificarExiste($dados['paciente_codigo']))
+				{
+					// Insere o paciente no banco de dados
+					$resultado = $this->agendamento->inserir($dados);
+
+					if($resultado == false)
+					{
+						$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Criação de agendamento falhou"]];
+					}
+					else
+					{
+						$this->resposta = ['msg' => ['tipo' => 's', 'texto' => "Agendamento criado com sucesso, <u>anote o número do agendamento</u>: <strong>".$resultado."</strong>"]];
+					}
+				}
+				else
+				{
+					$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "O Paciente de Código (".$dados['paciente_codigo'].") não existe"]];
+				}
 			}
-			
 		}
 
 		echo json_encode($this->resposta);
+	}
+
+	public function verificarExiste()
+	{
+		$id = $this->input->get("id");
+
+		if($this->agendamento->verificarExiste($id))
+		{
+			$this->resposta = ["msg" => ["tipo" => "s", "texto" => $id]];
+		}
+		else
+		{
+			$this->resposta = ["msg" => ["tipo" => "e", "texto" => 'Este agendamento não existe']];
+		}
+
+		return $this->resposta;
+	}
+
+	public function buscarPorCodigo()
+	{
+		$id = $this->input->get("id");
+
+		return $this->agendamento->buscarPorCodigo($id);
 	}
 }

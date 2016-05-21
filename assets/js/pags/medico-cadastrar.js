@@ -50,14 +50,7 @@ $(document).ready(function($)
 
 	$('.btn-primary').click(function()
 	{
-		if(form.valid())
-		{
-			salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoMedicoCadastrar);
-		}
-		else
-		{
-			form.validate().focusInvalid();
-		}
+		enter();
 	});	
 });
 

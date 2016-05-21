@@ -40,10 +40,10 @@
 									<input type="time" class="form-control" name="agendamento[hora]" placeholder="Hora da Consulta">
 								</div>
 								<div class="form-group">
-									<label>Tipo Consulta</label>
+									<label>Tipo Agendamento</label>
 									<select class="form-control" name="agendamento[tipo]">
 										<option value="">-- Selecione</option>
-										<option value="1">Normal</option>
+										<option value="1">Consulta</option>
 										<option value="2">Retorno</option>
 									</select>
 								</div>
