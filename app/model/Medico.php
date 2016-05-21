@@ -36,4 +36,11 @@ class Medico extends Model
         $this->mostrarError();
         return false;
 	}
+
+	public function listar()
+	{
+		$listar = $this->database->select($this->tabela, "*");
+
+		return $listar;
+	}
 }

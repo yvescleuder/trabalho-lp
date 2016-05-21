@@ -17,7 +17,7 @@ class PacienteController extends Controller
 		$this->paciente = new Paciente();
 	}
 
-	public function cadastrar()
+	public function inserir()
 	{
 		$dados = $this->input->get('paciente');
 
@@ -173,5 +173,10 @@ class PacienteController extends Controller
 		}
 
 		echo json_encode($this->resposta);
+	}
+
+	public function verificarExiste($codigo)
+	{
+		return $this->paciente->verificarExiste($codigo);
 	}
 }

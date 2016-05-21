@@ -17,7 +17,7 @@ class MedicoController extends Controller
 		$this->medico = new Medico();
 	}
 
-	public function cadastrar()
+	public function inserir()
 	{
 		$dados = $this->input->get('medico');
 
@@ -78,4 +78,8 @@ class MedicoController extends Controller
 		echo json_encode($this->resposta);
 	}
 
+	public function listar()
+	{
+		return $this->medico->listar();
+	}
 }

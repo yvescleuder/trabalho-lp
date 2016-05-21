@@ -72,4 +72,17 @@ class Paciente extends Model
         $this->mostrarError();
         return false;
 	}
+
+	public function verificarExiste($codigo)
+	{
+		$existe = $this->database->has($this->tabela, ["codigo" => $codigo]);
+
+		if($existe == true)
+		{
+			return true;
+		}
+
+        $this->mostrarError();
+        return false;
+	}
 }

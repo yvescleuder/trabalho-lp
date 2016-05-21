@@ -52,7 +52,6 @@ $(document).ready(function($)
 	{
 		if(form.valid())
 		{
-			console.log('valido');
 			salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoMedicoCadastrar);
 		}
 		else

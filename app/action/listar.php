@@ -3,6 +3,7 @@
 require_once('../controller/ConvenioController.php');
 require_once('../controller/PacienteController.php');
 require_once('../controller/EspecialidadeController.php');
+require_once('../controller/MedicoController.php');
 
 $acao = isset($_POST['acao']) ? $_POST['acao'] : '';
 
@@ -28,9 +29,17 @@ switch($acao)
 		echo json_encode($controller->listarEditar());
 		break;
 	}
+
 	case "listarEspecialidade":
 	{
 		$controller = new EspecialidadeController();
+		echo json_encode($controller->listar());
+		break;
+	}
+
+	case "listarMedico":
+	{
+		$controller = new MedicoController();
 		echo json_encode($controller->listar());
 		break;
 	}
