@@ -85,3 +85,17 @@ function retornoListarEspecialidade(resp, error)
 
   	$('#listarEspecialidade').append(datasHTML);
 }
+
+function enter()
+{
+	var form = $('#formCadastrarMedico');
+
+	if(form.valid())
+	{
+		salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoMedicoCadastrar);
+	}
+	else
+	{
+		form.validate().focusInvalid();
+	}
+} 

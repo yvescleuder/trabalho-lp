@@ -15,7 +15,7 @@
 					<!-- Inicio Form de edição de Paciente-->
 					<div class="panel-body">
 						<div id="resposta"></div>
-						<form id="formCadastrarAgendamento" action="../action/inserir.php" method="POST">
+						<form id="formCadastrarAgendamento" action="../action/inserir.php" method="POST" onkeydown="if(event.keyCode == 13) enter();">
 							<input type="hidden" name="acao" value="cadastrarAgendamento">
 							<div class="col-md-6">					
 								<div class="form-group">

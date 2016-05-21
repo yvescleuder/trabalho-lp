@@ -1,9 +1,9 @@
 /* Custom JavaScript */
 $(document).ready(function($)
 {
-	var form = $('#formBuscarPaciente');
+	var formBuscar = $('#formBuscarPaciente');
 
-	form.validate({
+	formBuscar.validate({
 		rules: {
 			"codigo": {
 				required: true,
@@ -14,27 +14,72 @@ $(document).ready(function($)
 		}
 	});
 
-	$('#butaoBuscarPaciente').click(function()
+	var formDados = $('#formDadosPaciente');
+
+	formDados.validate({
+		rules: {
+			"paciente[codigo]": {
+				required: true,
+				number: true,
+				minlength: 1,
+				maxlength: 10
+			},
+			"paciente[nome]": {
+				required: true,
+				minlength: 4,
+				maxlength: 100
+			},
+			"paciente[sobrenome]": {
+				required: true,
+				minlength: 4,
+				maxlength: 100
+			},
+			"paciente[telefone1]": {
+				required: true,
+				minlength: 14,
+				maxlength: 16
+			},
+			"paciente[telefone2]": {
+				minlength: 14,
+				maxlength: 16
+			},
+			"paciente[celular1]": {
+				required: true,
+				minlength: 14,
+				maxlength: 16
+			},
+			"paciente[celular2]": {
+				minlength: 14,
+				maxlength: 16
+			},
+			"paciente[convenio_id]": {
+				required: true,
+				minlength: 1
+			}
+		}
+	});
+
+	$('#botaoBuscarPaciente').click(function()
 	{
-		if(form.valid())
+		if(formBuscar.valid())
 		{
 			consultar('#formBuscarPaciente', '', 'json', antesEnviar('#resposta', '.loading'), retornoBuscarPaciente);
 		}
 		else
 		{
-			form.validate().focusInvalid();
+			formBuscar.validate().focusInvalid();
 		}
 	});
 
 	$('#botaoSalvarAlteracoes').click(function()
 	{
-		if(form.valid())
+		if(formDados.valid())
 		{
-			salvar($('#formDadosPaciente'), 'json', antesEnviar('#mostrar-error','.loading'), retornoSalvarAlteracoes);
+			salvar($('#formDadosPaciente'), 'json', antesEnviar('#resposta','.loading'), retornoSalvarAlteracoes);
 		}
 		else
 		{
-			form.validate().focusInvalid();
+			formDados.validate().focusInvalid();
 		}
 	});
 });
@@ -84,4 +129,34 @@ function retornoConvenio(resp, error)
 	});
 
   	$('#listarConvenio').append(datasHTML);
+}
+
+
+function enterBuscar()
+{
+	console.log('entrou no enterBuscar');
+	var formBuscar = $('#formBuscarPaciente');
+
+	if(formBuscar.valid())
+	{
+		consultar('#formBuscarPaciente', '', 'json', antesEnviar('#resposta', '.loading'), retornoBuscarPaciente);
+	}
+	else
+	{
+		formBuscar.validate().focusInvalid();
+	}
+}
+
+function enterAlterar()
+{
+	var formDados = $('#formDadosPaciente');
+
+	if(formDados.valid())
+	{
+		salvar($('#formDadosPaciente'), 'json', antesEnviar('#resposta','.loading'), retornoSalvarAlteracoes);
+	}
+	else
+	{
+		formDados.validate().focusInvalid();
+	}
 }

@@ -69,3 +69,17 @@ function retornoListarMedico(resp, error)
 
   	$('#listarMedico').append(datasHTML);
 }
+
+function enter()
+{
+	var form = $('#formCadastrarAgendamento');
+	
+	if(form.valid())
+	{
+		salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoAgendamentoCadastrar);
+	}
+	else
+	{
+		form.validate().focusInvalid();
+	}
+} 

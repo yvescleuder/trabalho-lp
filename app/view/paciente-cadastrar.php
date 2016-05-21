@@ -13,7 +13,7 @@
 					<div class="panel-heading">Cadastrar Paciente</div>
 					<div class="panel-body">
 						<div id="resposta"></div>
-						<form id="formCadastrarPaciente" action="../action/inserir.php" method="POST">
+						<form id="formCadastrarPaciente" action="../action/inserir.php" method="POST" onkeydown="if(event.keyCode == 13) enter();">
 							<input type="hidden" name="acao" value="cadastrarPaciente">
 							<div class="col-md-6">
 								<div class="form-group">
@@ -62,7 +62,7 @@
 							</div>
 
 							<div class="col-md-12">
-								<button type="submit" class="btn btn-primary btn-disabled">Cadastrar</button>
+								<a type="submit" class="btn btn-primary btn-disabled">Cadastrar</a>
 								<button type="reset" class="btn btn-default btn-disabled">Limpar campos</button>
 								<span class="loading hide">
 									<img src="../../assets/img/load.gif" alt="Carregando...">

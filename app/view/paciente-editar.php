@@ -14,7 +14,7 @@
 						<!-- Form Busca Codigo Paciente-->
 						<div class="panel-body" id="divBuscarPaciente">
 							<div id="resposta"></div>
-							<form id="formBuscarPaciente" action="../action/listar.php" method="POST">
+							<form id="formBuscarPaciente" action="../action/listar.php" method="POST" onkeydown="if(event.keyCode == 13) enterBuscar();">
 								<input type="hidden" name="acao" value="buscarPaciente">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -24,7 +24,7 @@
 								</div>
 
 								<div class="col-md-12">
-									<button type="submit" id="butaoBuscarPaciente" class="btn btn-primary btn-disabled">Buscar</button>
+									<button type="submit" id="botaoBuscarPaciente" class="btn btn-primary btn-disabled">Buscar</button>
 									<span class="loading hide">
 										<img src="../../assets/img/load.gif" alt="Carregando...">
 									</span>
@@ -39,7 +39,7 @@
 						<!-- Inicio Form de edição de Paciente-->
 						<div class="panel-body hidden" id="divDadosPaciente">
 							<div id="respostaAlterar"></div>
-							<form id="formDadosPaciente" action="../action/alterar.php" method="POST">
+							<form id="formDadosPaciente" action="../action/alterar.php" method="POST" onkeydown="if(event.keyCode == 13) enterAlterar();">
 								<input type="hidden" name="acao" value="editarPaciente">
 								<input type="hidden" id="codigo_paciente" name="codigo_paciente" value="">
 								<div class="col-md-6">

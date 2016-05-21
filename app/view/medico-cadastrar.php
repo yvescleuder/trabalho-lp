@@ -13,7 +13,7 @@
 					<div class="panel-heading">Cadastrar Médico</div>
 					<div class="panel-body">
 						<div id="resposta"></div>
-						<form id="formCadastrarMedico" action="../action/inserir.php" method="POST">
+						<form id="formCadastrarMedico" action="../action/inserir.php" method="POST" onkeydown="if(event.keyCode == 13) enter();">
 							<input type="hidden" name="acao" value="cadastrarMedico">
 							<div class="col-md-6">
 								<div class="form-group">
