@@ -1,6 +1,9 @@
 /* Custom JavaScript */
 $(document).ready(function($)
 {
+	$('#data').mask('00/00/0000');
+	$('#hora').mask('00:00');
+
 	consultar('#formListarMedico', '', 'json', function(){}, retornoListarMedico);
 
 	var form = $('#formCadastrarAgendamento');
@@ -32,9 +35,17 @@ $(document).ready(function($)
 		}
 	});
 
-	$('.btn-primary').click(function()
+	$('.btn-primary').click(function(event)
 	{
-		enter();
+		event.preventDefault();
+		if(form.valid())
+		{
+			salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoAgendamentoCadastrar);
+		}
+		else
+		{
+			form.validate().focusInvalid();
+		}
 	});
 });
 
@@ -61,18 +72,4 @@ function retornoListarMedico(resp, error)
 	});
 
   	$('#listarMedico').append(datasHTML);
-}
-
-function enter()
-{
-	var form = $('#formCadastrarAgendamento');
-	
-	if(form.valid())
-	{
-		salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoAgendamentoCadastrar);
-	}
-	else
-	{
-		form.validate().focusInvalid();
-	}
 } 

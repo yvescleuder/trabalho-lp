@@ -15,7 +15,7 @@
 					<!-- Inicio Form de edição de Paciente-->
 					<div class="panel-body">
 						<div id="resposta"></div>
-						<form id="formCadastrarAgendamento" action="../action/inserir.php" method="POST" onkeydown="if(event.keyCode == 13) enter();">
+						<form id="formCadastrarAgendamento" action="../action/inserir.php" method="POST">
 							<input type="hidden" name="acao" value="cadastrarAgendamento">
 							<div class="col-md-6">					
 								<div class="form-group">
@@ -24,7 +24,7 @@
 								</div>				
 								<div class="form-group">
 									<label>Data</label>
-									<input type="date" class="form-control" name="agendamento[data]" placeholder="Data da Consulta">
+									<input type="text" id="data" class="form-control" name="agendamento[data]" placeholder="Data da Consulta">
 								</div>						
 								<div class="form-group">
 									<label>Médico</label>
@@ -37,7 +37,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Hora</label>
-									<input type="time" class="form-control" name="agendamento[hora]" placeholder="Hora da Consulta">
+									<input type="time" id="hora" class="form-control" name="agendamento[hora]" placeholder="Hora da Consulta">
 								</div>
 								<div class="form-group">
 									<label>Tipo Agendamento</label>

@@ -14,7 +14,7 @@
 						<!-- Form Busca Codigo Agendamento -->
 						<div class="panel-body" id="divBuscarAgendamento">
 							<div id="resposta"></div>
-							<form id="formBuscarAgendamento" action="../action/listar.php" method="POST" onkeydown="if(event.keyCode == 13) enter();">
+							<form id="formBuscarAgendamento" action="../action/listar.php" method="POST">
 								<input type="hidden" name="acao" value="buscarAgendamento">
 								<div class="col-md-6">
 									<div class="form-group">

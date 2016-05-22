@@ -14,9 +14,17 @@ $(document).ready(function($)
 		}
 	});
 
-	$('#botaoBuscarAgendamento').click(function()
+	$('#botaoBuscarAgendamento').click(function(event)
 	{
-		enter();
+		event.preventDefault();
+		if(formBuscar.valid())
+		{
+			consultar('#formBuscarAgendamento', '', 'json', antesEnviar('#resposta', '.loading'), retornoBuscarAgendamento);
+		}
+		else
+		{
+			formBuscar.validate().focusInvalid();
+		}
 	});
 });
 
@@ -47,18 +55,4 @@ function retornoDadosAgendamento(resp, error)
 	{
         $("#"+index).val(resp[index]);
     }
-}
-
-function enter()
-{
-	var formBuscar = $('#formBuscarAgendamento');
-
-	if(formBuscar.valid())
-	{
-		consultar('#formBuscarAgendamento', '', 'json', antesEnviar('#resposta', '.loading'), retornoBuscarAgendamento);
-	}
-	else
-	{
-		formBuscar.validate().focusInvalid();
-	}
 }

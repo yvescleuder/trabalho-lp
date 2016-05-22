@@ -59,14 +59,30 @@ $(document).ready(function($)
 		}
 	});
 
-	$('#botaoBuscarPaciente').click(function()
+	$('#botaoBuscarPaciente').click(function(event)
 	{
-		enterBuscar();
+		event.preventDefault();
+		if(formBuscar.valid())
+		{
+			consultar('#formBuscarPaciente', '', 'json', antesEnviar('#resposta', '.loading'), retornoBuscarPaciente);
+		}
+		else
+		{
+			formBuscar.validate().focusInvalid();
+		}
 	});
 
-	$('#botaoSalvarAlteracoes').click(function()
+	$('#botaoSalvarAlteracoes').click(function(event)
 	{
-		enterAlterar();
+		event.preventDefault();
+		if(formDados.valid())
+		{
+			salvar($('#formDadosPaciente'), 'json', antesEnviar('#resposta','.loading'), retornoSalvarAlteracoes);
+		}
+		else
+		{
+			formDados.validate().focusInvalid();
+		}
 	});
 });
 
@@ -115,34 +131,4 @@ function retornoConvenio(resp, error)
 	});
 
   	$('#listarConvenio').append(datasHTML);
-}
-
-
-function enterBuscar()
-{
-	console.log('entrou no enterBuscar');
-	var formBuscar = $('#formBuscarPaciente');
-
-	if(formBuscar.valid())
-	{
-		consultar('#formBuscarPaciente', '', 'json', antesEnviar('#resposta', '.loading'), retornoBuscarPaciente);
-	}
-	else
-	{
-		formBuscar.validate().focusInvalid();
-	}
-}
-
-function enterAlterar()
-{
-	var formDados = $('#formDadosPaciente');
-
-	if(formDados.valid())
-	{
-		salvar($('#formDadosPaciente'), 'json', antesEnviar('#resposta','.loading'), retornoSalvarAlteracoes);
-	}
-	else
-	{
-		formDados.validate().focusInvalid();
-	}
 }

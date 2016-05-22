@@ -16,5 +16,7 @@
 	<script type="text/javascript" src="../../assets/js/easypiechart.js"></script>
 	<script type="text/javascript" src="../../assets/js/easypiechart-data.js"></script>
 	<script type="text/javascript" src="../../assets/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="../../assets/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/pags/customizado.js"></script>
 </body>
 </html>

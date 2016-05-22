@@ -48,10 +48,18 @@ $(document).ready(function($)
 		}
 	});
 
-	$('.btn-primary').click(function()
+	$('.btn-primary').click(function(event)
 	{
-		enter();
-	});	
+		event.preventDefault();
+		if(form.valid())
+		{
+			salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoPacienteCadastrar);
+		}
+		else
+		{
+			form.validate().focusInvalid();
+		}
+	});
 });
 
 function retornoPacienteCadastrar(resp, error)
@@ -78,17 +86,3 @@ function retornoListarConvenio(resp, error)
 
   	$('#listarConvenio').append(datasHTML);
 }
-
-function enter()
-{
-	var form = $('#formCadastrarPaciente');
-
-	if(form.valid())
-	{
-		salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoPacienteCadastrar);
-	}
-	else
-	{
-		form.validate().focusInvalid();
-	}
-}  

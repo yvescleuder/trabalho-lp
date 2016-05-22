@@ -48,9 +48,17 @@ $(document).ready(function($)
 		}
 	});
 
-	$('.btn-primary').click(function()
+	$('.btn-primary').click(function(event)
 	{
-		enter();
+		event.preventDefault();
+		if(form.valid())
+		{
+			salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoMedicoCadastrar);
+		}
+		else
+		{
+			form.validate().focusInvalid();
+		}
 	});	
 });
 
@@ -78,17 +86,3 @@ function retornoListarEspecialidade(resp, error)
 
   	$('#listarEspecialidade').append(datasHTML);
 }
-
-function enter()
-{
-	var form = $('#formCadastrarMedico');
-
-	if(form.valid())
-	{
-		salvar(form, 'json', antesEnviar('#resposta', '.loading'), retornoMedicoCadastrar);
-	}
-	else
-	{
-		form.validate().focusInvalid();
-	}
-} 

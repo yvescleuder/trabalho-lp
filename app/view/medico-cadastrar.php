@@ -13,7 +13,7 @@
 					<div class="panel-heading">Cadastrar Médico</div>
 					<div class="panel-body">
 						<div id="resposta"></div>
-						<form id="formCadastrarMedico" action="../action/inserir.php" method="POST" onkeydown="if(event.keyCode == 13) enter();">
+						<form id="formCadastrarMedico" action="../action/inserir.php" method="POST">
 							<input type="hidden" name="acao" value="cadastrarMedico">
 							<div class="col-md-6">
 								<div class="form-group">
@@ -28,12 +28,12 @@
 																
 								<div class="form-group">
 									<label>Telefone 1</label>
-									<input type="text" class="form-control" name="medico[telefone1]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" id="telefone1" class="form-control" name="medico[telefone1]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 																
 								<div class="form-group">
 									<label>Celular 1</label>
-									<input type="text" class="form-control" name="medico[celular1]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" id="celular1" class="form-control" name="medico[celular1]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 							</div>
 
@@ -52,12 +52,12 @@
 																
 								<div class="form-group">
 									<label>Telefone 2</label>
-									<input type="text" class="form-control" name="medico[telefone2]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" id="telefone2" class="form-control" name="medico[telefone2]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 																
 								<div class="form-group">
 									<label>Celular 2</label>
-									<input type="text" class="form-control" name="medico[celular2]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" id="celular2" class="form-control" name="medico[celular2]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 							</div>
 

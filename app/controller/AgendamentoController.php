@@ -21,7 +21,7 @@ class AgendamentoController extends Controller
 	public function inserir()
 	{
 		$dados = $this->input->get('agendamento');
-
+		$dados['data'] = date("Y-m-d", strtotime($dados['data']));
 		$resultadoInvalido = "";
 
 		// Faz a validação de todos os campos

@@ -13,7 +13,7 @@
 					<div class="panel-heading">Cadastrar Paciente</div>
 					<div class="panel-body">
 						<div id="resposta"></div>
-						<form id="formCadastrarPaciente" action="../action/inserir.php" method="POST" onkeydown="if(event.keyCode == 13) enter();">
+						<form id="formCadastrarPaciente" action="../action/inserir.php" method="POST">
 							<input type="hidden" name="acao" value="cadastrarPaciente">
 							<div class="col-md-6">
 								<div class="form-group">
@@ -28,12 +28,12 @@
 																
 								<div class="form-group">
 									<label>Telefone 1</label>
-									<input type="text" class="form-control" name="paciente[telefone1]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" id="telefone1" class="form-control" name="paciente[telefone1]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 																
 								<div class="form-group">
 									<label>Celular 1</label>
-									<input type="text" class="form-control" name="paciente[celular1]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" id="celular1" class="form-control" name="paciente[celular1]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 							</div>
 
@@ -52,17 +52,17 @@
 																
 								<div class="form-group">
 									<label>Telefone 2</label>
-									<input type="text" class="form-control" name="paciente[telefone2]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" id="telefone2" class="form-control" name="paciente[telefone2]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 																
 								<div class="form-group">
 									<label>Celular 2</label>
-									<input type="text" class="form-control" name="paciente[celular2]" placeholder="(99) # 9999-9999" maxlength="16">
+									<input type="text" id="celular2" class="form-control" name="paciente[celular2]" placeholder="(99) # 9999-9999" maxlength="16">
 								</div>
 							</div>
 
 							<div class="col-md-12">
-								<a type="submit" class="btn btn-primary btn-disabled">Cadastrar</a>
+								<button type="submit" class="btn btn-primary btn-disabled">Cadastrar</button>
 								<button type="reset" class="btn btn-default btn-disabled">Limpar campos</button>
 								<span class="loading hide">
 									<img src="../../assets/img/load.gif" alt="Carregando...">
