@@ -59,6 +59,13 @@ switch($acao)
 		break;
 	}
 
+	case "listarAgendamento":
+	{
+		$controller = new AgendamentoController();
+		echo json_encode($controller->listar());
+		break;
+	}
+
     default: 
     {
         echo "Operação inválida";

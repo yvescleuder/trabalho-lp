@@ -12,11 +12,14 @@
 				<h1 class="page-header">Início</h1>
 			</div>
 		</div><!--/.row-->
-
+		<form id="formProximosAgendamentos" action="../action/listar.php" method="POST">
+			<input type="hidden" name="acao" value="listarAgendamento">
+		</form>
 		<div class="row">
 			<div class="col-md-12">
-				<div class="panel panel-teal">
-					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>Próximas Consultas</div>
+				<div id="proximosAgendamentos" class="panel panel-teal">
+					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>Próximos Agendamentos</div>
+					
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-12">
@@ -44,61 +47,9 @@
 						</div>
 					</div>
 
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-12">
-								<ul class="todo-list">
-									<li class="todo-list-item">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="col-md-3">
-													<label>Hugo Fernandes</label>
-												</div>
-												<div class="col-md-3">
-													<label for="list">Dr. João</label>
-												</div>
-												<div class="col-md-3">
-													<label for="list">20/05/2016 - 12:00:00</label>
-												</div>
-												<div class="col-md-3">
-													<label for="list">Consulta</label>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-12">
-								<ul class="todo-list">
-									<li class="todo-list-item">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="col-md-3">
-													<label>Hugo Fernandes</label>
-												</div>
-												<div class="col-md-3">
-													<label for="list">Dr. João</label>
-												</div>
-												<div class="col-md-3">
-													<label for="list">20/05/2016 - 12:00:00</label>
-												</div>
-												<div class="col-md-3">
-													<label for="list">Retorno</label>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>	
 				</div>	
 			</div>
 		</div><!-- /.row -->
 	</div>	<!--/.main-->
 <?php require_once('footer.php'); ?>
+	<script type="text/javascript" src="../../assets/js/pags/inicio.js"></script>

@@ -96,4 +96,9 @@ class AgendamentoController extends Controller
 
 		return $this->agendamento->buscarPorCodigo($id);
 	}
+
+	public function listar()
+	{
+		return $this->agendamento->listar();
+	}
 }
