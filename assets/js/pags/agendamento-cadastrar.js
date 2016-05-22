@@ -19,8 +19,7 @@ $(document).ready(function($)
 				required: true
 			},
 			"agendamento[data]": {
-				required: true,
-				date: true
+				required: true
 			},
 			"agendamento[tipo]": {
 				required: true,
