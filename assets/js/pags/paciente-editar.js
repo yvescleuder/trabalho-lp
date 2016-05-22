@@ -88,15 +88,26 @@ $(document).ready(function($)
 
 function retornoSalvarAlteracoes(resp, error)
 {
-	notificacao("#respostaAlterar", resp.msg);
-	$('html, body').animate({scrollTop: $('.navbar-brand').offset().top }, 1000);
+	var resposta = resp.msg.texto;
 	loading('.loading', 0);
+	if(resp.msg.tipo == 's')
+	{
+		swal({ title: "Sucesso!", text: resposta, html: true, type: 'success'});
+		form.reset();
+	}
+	else
+	{
+		swal({ title: "Erro!", text: resposta, html: true, type: 'error'});
+	}
+	$('html, body').animate({scrollTop: $('.navbar-brand').offset().top }, 1000);
+	
 }
 
 function retornoBuscarPaciente(resp, error)
 {
 	var form = $('#formBuscarPaciente');
-	notificacao("#resposta", resp.msg);
+	var resposta = resp.msg.texto;
+	loading('.loading', 0);
 	if(resp.msg.tipo == 's')
 	{
 		consultar('#formBuscarPaciente', '', 'json', function(){}, retornoDadosPaciente);
@@ -104,10 +115,12 @@ function retornoBuscarPaciente(resp, error)
 		$('#divDadosPaciente').removeClass('hidden');
 		form.reset();
 	}
+	else
+	{
+		swal({ title: "Erro!", text: resposta, html: true, type: 'error'});
+	}
 
 	$('html, body').animate({scrollTop: $('.navbar-brand').offset().top }, 1000);
-
-	loading('.loading', 0);
 }
 
 function retornoDadosPaciente(resp, error)

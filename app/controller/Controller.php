@@ -1,6 +1,7 @@
 <?php
 
 require_once('lib/Input.php');
+require_once('MensagemController.php');
 
 class Controller
 {
@@ -10,6 +11,6 @@ class Controller
     public function __construct()
     {
         date_default_timezone_set('America/Sao_Paulo');
-        $this->input = new Input;
+        $this->input = new Input();
     }
 }

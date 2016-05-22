@@ -48,7 +48,7 @@ class AgendamentoController extends Controller
 		{
 			if($this->agendamento->verificarDataHora($dados['data'], $dados['hora']))
 			{
-				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Já existe um agendamento com os respectivos horários (".date('d/m/Y', strtotime($dados['data']))." - ".$dados['hora'].")"]];
+				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => MensagemController::msg007(date('d/m/Y', strtotime($dados['data'])), $dados['hora'])]];
 			}
 			else
 			{
@@ -59,16 +59,16 @@ class AgendamentoController extends Controller
 
 					if($resultado == false)
 					{
-						$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Criação de agendamento falhou"]];
+						$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => MensagemController::msg008()]];
 					}
 					else
 					{
-						$this->resposta = ['msg' => ['tipo' => 's', 'texto' => "Agendamento criado com sucesso, <u>anote o número do agendamento</u>: <strong>".$resultado."</strong>"]];
+						$this->resposta = ['msg' => ['tipo' => 's', 'texto' => MensagemController::msg009($resultado)]];
 					}
 				}
 				else
 				{
-					$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "O Paciente de Código (".$dados['paciente_codigo'].") não existe"]];
+					$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => MensagemController::msg010($dados['paciente_codigo'])]];
 				}
 			}
 		}
@@ -86,7 +86,7 @@ class AgendamentoController extends Controller
 		}
 		else
 		{
-			$this->resposta = ["msg" => ["tipo" => "e", "texto" => 'Este agendamento não existe']];
+			$this->resposta = ["msg" => ["tipo" => "e", "texto" => MensagemController::msg011()]];
 		}
 
 		return $this->resposta;
@@ -102,5 +102,10 @@ class AgendamentoController extends Controller
 	public function listar()
 	{
 		return $this->agendamento->listar();
+	}
+
+	public function listarCalendario()
+	{
+		return $this->agendamento->listarCalendario();
 	}
 }

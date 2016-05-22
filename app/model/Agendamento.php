@@ -70,6 +70,35 @@ class Agendamento extends Model
 		return $buscar;
 	}
 
+	public function listarCalendario()
+	{
+		$resultado = [];
+
+		$listar = $this->database->query("SELECT
+											t1.id,
+											CONCAT(date_format(t1.data,'%Y-%m-%d'), ' ', date_format(t1.hora,'%H:%i')) as start,
+											CONCAT(date_format(t1.data,'%Y-%m-%d'), ' ', date_format(DATE_ADD(t1.hora, INTERVAL 1 HOUR),'%H:%i')) as end,
+											CONCAT(t2.nome, ' - ', t3.nome) as title,
+											CASE t1.tipo
+												WHEN 1
+													THEN '#0073b7'
+												WHEN 2
+													THEN '#f39c12'
+											END as cor
+										FROM $this->tabela as t1
+										INNER JOIN paciente as t2 ON (t1.paciente_codigo = t2.codigo)
+										INNER JOIN medico as t3 ON (t1.medico_id = t3.id)
+										WHERE t1.data >= CURDATE()")->fetchAll();
+
+		foreach($listar as $key => $value)
+		{
+			$linha = ["title" => $value->title, "start" => $value->start, "end" => $value->end, "backgroundColor" => $value->cor, "borderColor" => $value->cor];
+			$resultado['dados'][] = $linha;
+		}
+
+		return $resultado;
+	}
+
 	public function listar()
 	{
 		$listar = $this->database->query("SELECT

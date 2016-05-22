@@ -31,6 +31,8 @@ $(document).ready(function($)
 function retornoBuscarAgendamento(resp, error)
 {
 	var form = $('#formBuscarAgendamento');
+	var resposta = resp.msg.texto;
+	loading('.loading', 0);
 	if(resp.msg.tipo == 's')
 	{
 		$('#agendamento_id').val(resp.msg.texto);
@@ -41,12 +43,10 @@ function retornoBuscarAgendamento(resp, error)
 	}
 	else
 	{
-		notificacao("#resposta", resp.msg);
+		swal({ title: "Erro!", text: resposta, html: true, type: 'error'});
 	}
 
-	$('html, body').animate({scrollTop: $('.navbar-brand').offset().top }, 1000);
-
-	loading('.loading', 0);
+	$('html, body').animate({scrollTop: $('.navbar-brand').offset().top }, 1000);	
 }
 
 function retornoDadosAgendamento(resp, error)

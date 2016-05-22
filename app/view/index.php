@@ -47,6 +47,12 @@ else
 			require_once('medico-cadastrar.php');
 			break;
 		}
+
+		case "agendamentos":
+		{
+			require_once('agendamentos.php');
+			break;
+		}
 		
 		default:
 		{

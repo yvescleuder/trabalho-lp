@@ -9,47 +9,48 @@
 		
 		<div class="row" align="center">
 			<div class="col-md-12">
-				<h1 class="page-header">Início</h1>
+				<!-- <h3 href="javascript:;" class="page-header"><b>SysMedic </b>Calendário</h3> -->
+				<h3>
+				      SysMedic
+				      <small>Calendário</small>
+			    </h3>
 			</div>
 		</div><!--/.row-->
-		<form id="formProximosAgendamentos" action="../action/listar.php" method="POST">
-			<input type="hidden" name="acao" value="listarAgendamento">
-		</form>
-		<div class="row">
-			<div class="col-md-12">
-				<div id="proximosAgendamentos" class="panel panel-teal">
-					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>Próximos Agendamentos</div>
-					
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-12">
-								<ul class="todo-list">
-									<li class="todo-list-item">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="col-md-3">
-													<label>Paciente</label>
-												</div>
-												<div class="col-md-3">
-													<label for="list">Médico</label>
-												</div>
-												<div class="col-md-3">
-													<label for="list">Data/Hora</label>
-												</div>
-												<div class="col-md-3">
-													<label for="list">Agendamento</label>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
 
-				</div>	
-			</div>
-		</div><!-- /.row -->
+		<section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h4 class="box-title">Tipo de Agendamento</h4>
+            </div>
+            <div class="box-body">
+              <!-- the events -->
+              <div id="external-events">
+                <div class="external-event bg-yellow">Retorno</div>
+                <div class="external-event bg-blue">Consulta</div>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /. box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="box box-primary">
+            <div class="box-body no-padding">
+              <!-- THE CALENDAR -->
+              <div id="calendar"></div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /. box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+		
 	</div>	<!--/.main-->
 <?php require_once('footer.php'); ?>
 	<script type="text/javascript" src="../../assets/js/pags/inicio.js"></script>

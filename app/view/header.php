@@ -6,10 +6,22 @@
 <title>SysMedic</title>
 
 <link type="text/css" href="../../assets/css/bootstrap.min.css" rel="stylesheet">
-<link type="text/css" href="../../assets/css/datepicker3.css" rel="stylesheet">
+<!-- <link type="text/css" href="../../assets/css/datepicker3.css" rel="stylesheet"> -->
 <link type="text/css" href="../../assets/css/styles.css" rel="stylesheet">
 <link type="text/css" href="../../assets/css/font-awesome.css" rel="stylesheet">
+<link type="text/css" href="../../assets/css/sweetalert.css" rel="stylesheet">
 <link type="text/css" href="../../assets/css/customizacao.css" rel="stylesheet">
+
+<?php 
+if(!isset($_GET['pagina']) || ($_GET['pagina'] == '') || ($_GET['pagina'] == 'inicio'))
+{
+echo
+'<!-- Funcionalidades do calendário -->
+<link rel="stylesheet" href="../../assets/css/AdminLTE.css">
+<link rel="stylesheet" href="../../assets/css/fullcalendar.min.css">';
+}
+?>
+
 
 <!-- Icons Base do Template -->
 <script src="../../assets/js/lumino.glyphs.js"></script>
@@ -31,7 +43,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>Sys</span>Medic</a>
+				<a class="navbar-brand" href="#"><span>SysMedic</a></span>
 			</div>
 							
 		</div><!-- /.container-fluid -->
@@ -47,6 +59,7 @@
 			<li <?php echo (isset($_GET['pagina']) && ($_GET['pagina'] == 'paciente/editar')) ? 'class="active"' : '' ?>><a href="index?pagina=paciente/editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar Paciente</a></li>
 			<li <?php echo (isset($_GET['pagina']) && ($_GET['pagina'] == 'agendamento/cadastrar')) ? 'class="active"' : '' ?>><a href="index?pagina=agendamento/cadastrar"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Cadastrar Agendamento</a></li>
 			<li <?php echo (isset($_GET['pagina']) && ($_GET['pagina'] == 'agendamento/visualizar')) ? 'class="active"' : '' ?>><a href="index?pagina=agendamento/visualizar"><i class="fa fa-search" aria-hidden="true"></i> Visualizar Agendamento</a></li>
+			<li <?php echo (isset($_GET['pagina']) && ($_GET['pagina'] == 'agendamentos')) ? 'class="active"' : '' ?>><a href="index?pagina=agendamentos"><i class="fa fa-search" aria-hidden="true"></i> Agendamentos</a></li>
 		</ul>
 
 	</div><!--/.sidebar-->

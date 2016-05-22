@@ -1,43 +1,37 @@
-/* Custom JavaScript */
-$(document).ready(function($)
+$(function()
 {
-	consultar('#formProximosAgendamentos', '', 'json', antesEnviar('#resposta', '.loading'), retornoProximosAgendamentos);
-});
-
-function retornoProximosAgendamentos(resp, error)
-{
-	console.log(resp);
-	var datasHTML = '';
-
-	resp.forEach(function(item , i)
+	/* initialize the calendar
+	 -----------------------------------------------------------------*/
+	$('#calendar').fullCalendar({
+	header:
 	{
-		datasHTML += '<div class="panel-body">'+
-						'<div class="row">'+
-							'<div class="col-md-12">'+
-								'<ul class="todo-list">'+
-									'<li class="todo-list-item">'+
-										'<div class="row">'+
-											'<div class="col-md-12">'+
-												'<div class="col-md-3">'+
-													'<label>'+item.nomePaciente+'</label>'+
-												'</div>'+
-												'<div class="col-md-3">'+
-													'<label for="list">'+item.nomeMedico+'</label>'+
-												'</div>'+
-												'<div class="col-md-3">'+
-													'<label for="list">'+item.datahora+'</label>'+
-												'</div>'+
-												'<div class="col-md-3">'+
-													'<label for="list">'+item.tipoAgendamento+'</label>'+
-												'</div>'+
-											'</div>'+
-										'</div>'+
-									'</li>'+
-								'</ul>'+
-							'</div>'+
-						'</div>'+
-					'</div>';
+	    left: 'prev,next today',
+	    center: 'title',
+	    right: 'month,agendaWeek,agendaDay'
+	},
+	buttonText:
+	{
+		today: 'Hoje',
+		month: 'Mês',
+		week: 'Semana',
+		day: 'Dia'
+	},
+	//Random default events
+	events:
+	{
+		url: '../action/listar.php',
+		type: 'POST',
+		data:
+		{
+			acao: 'listarCalendario',
+		},
+		error: mostraErro,
+		success: function(resp)
+		{
+			return resp.dados;
+		}
+	},
+	editable: false,
+	droppable: false, // this allows things to be dropped onto the calendar !!!
 	});
-
-	$('#proximosAgendamentos').append(datasHTML);
-}
+});

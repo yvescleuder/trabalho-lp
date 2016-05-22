@@ -57,7 +57,7 @@ class PacienteController extends Controller
 			// Verifica se o valor do campo codigo já existe no banco de dados 
 			if($this->paciente->valorExiste('codigo', $dados['codigo']))
 			{
-				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Este código ({$dados['codigo']}) já existe"]];
+				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => MensagemController::msg003($dados['codigo'])]];
 			}
 			else
 			{
@@ -66,11 +66,11 @@ class PacienteController extends Controller
 
 				if($resultado == true)
 				{
-					$this->resposta = ['msg' => ['tipo' => 's', 'texto' => "Usuário criado com sucesso"]];
+					$this->resposta = ['msg' => ['tipo' => 's', 'texto' => MensagemController::msg001()]];
 				}
 				else
 				{
-					$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Criação de usuário falhou"]];
+					$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => MensagemController::msg002()]];
 				}
 			}
 		}
@@ -108,7 +108,7 @@ class PacienteController extends Controller
 			}
 			else
 			{
-				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Esse código ({$codigo}) não existe"]];
+				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => MensagemController::msg004($codigo)]];
 			}
 		}
 
@@ -164,11 +164,11 @@ class PacienteController extends Controller
 
 			if($resultado == true)
 			{
-				$this->resposta = ['msg' => ['tipo' => 's', 'texto' => "Usuário alterado com sucesso"]];
+				$this->resposta = ['msg' => ['tipo' => 's', 'texto' => MensagemController::msg005()]];
 			}
 			else
 			{
-				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Alteração de usuário falhou"]];
+				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => MensagemController::msg006()]];
 			}
 		}
 

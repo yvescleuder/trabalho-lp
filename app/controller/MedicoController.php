@@ -57,7 +57,7 @@ class MedicoController extends Controller
 			// Verifica se o valor do campo codigo já existe no banco de dados 
 			if($this->medico->valorExiste('crm', $dados['crm']))
 			{
-				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Este CRM ({$dados['crm']}) já existe"]];
+				$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => MensagemController::msg012($dados['crm'])]];
 			}
 			else
 			{
@@ -66,11 +66,11 @@ class MedicoController extends Controller
 
 				if($resultado == true)
 				{
-					$this->resposta = ['msg' => ['tipo' => 's', 'texto' => "Médico criado com sucesso"]];
+					$this->resposta = ['msg' => ['tipo' => 's', 'texto' => MensagemController::msg013()]];
 				}
 				else
 				{
-					$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => "Criação de médico falhou"]];
+					$this->resposta = ['msg' => ['tipo' => 'e', 'texto' => MensagemController::msg014()]];
 				}
 			}
 		}
